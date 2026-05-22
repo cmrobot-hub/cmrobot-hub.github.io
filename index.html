@@ -412,14 +412,12 @@ function renderHonor(){
   }).join('');
 }
 
-}
-function addNews(){var t=document.getElementById('nTitle').value.trim();if(!t){toast('請填寫標題');return}D.news.unshift({id:Date.now(),title:t,body:document.getElementById('nBody').value,tag:document.getElementById('nTag').value,date:document.getElementById('nDate').value,img:document.getElementById('nImgD').value});['nTitle','nBody'].forEach(function(id){document.getElementById(id).value=''});document.getElementById('nImgD').value='';document.getElementById('nImgPrev').innerHTML='<span>點擊選取圖片</span>';renderAdminLists();toast('已新增消息 ✓')}
-function delNews(id){D.news=D.news.filter(function(x){return x.id!==id});renderAdminLists();toast('已刪除')}
-function addCourse(){var n=document.getElementById('cName').value.trim();if(!n){toast('請填寫課程名稱');return}D.courses.push({id:Date.now(),name:n,tagline:'',desc:document.getElementById('cDesc').value,age:document.getElementById('cAge').value,hrs:document.getElementById('cHrs').value,lv:document.getElementById('cLv').value,price:document.getElementById('cPrice').value,emoji:document.getElementById('cEmoji').value||'🤖',img:document.getElementById('cImgD').value,highlight:''});['cName','cDesc','cAge','cHrs','cPrice'].forEach(function(id){document.getElementById(id).value=''});document.getElementById('cImgD').value='';document.getElementById('cImgPrev').innerHTML='<span>點擊選取圖片</span>';renderAdminLists();toast('已新增課程 ✓')}
-function delCourse(id){D.courses=D.courses.filter(function(c){return c.id!==id});renderAdminLists();toast('已刪除')}
-function addHonor(){var e=document.getElementById('hEvent').value.trim();if(!e){toast('請填寫比賽名稱');return}D.honor.unshift({id:Date.now(),event:e,year:document.getElementById('hYear').value,rank:document.getElementById('hRank').value,medal:document.getElementById('hMedal').value||'🏆'});['hEvent','hYear','hRank'].forEach(function(id){document.getElementById(id).value=''});renderAdminLists();toast('已新增獎項 ✓')}
-function delHonor(id){D.honor=D.honor.filter(function(h){return h.id!==id});renderAdminLists();toast('已刪除')}
-}
+
+
+
+
+
+
 function hImg(inp,prev,dat){var f=document.getElementById(inp).files[0];if(!f)return;var r=new FileReader();r.onload=function(e){document.getElementById(prev).innerHTML='<img src="'+e.target.result+'" style="width:100%;height:100%;object-fit:cover">';document.getElementById(dat).value=e.target.result};r.readAsDataURL(f)}
 function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2500)}
 renderHomeNews();renderCourses();renderHonor();
